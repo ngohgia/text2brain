@@ -25,9 +25,11 @@ if __name__ == "__main__":
         pretrained_bert_dir=pretrained_bert_dir,
         drop_p=0.55)
 
-    state_dict = torch.load(checkpoint_file, map_location=torch.device('cpu'))['state_dict']
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    state_dict = torch.load(checkpoint_file, map_location=device)['state_dict']
     model.load_state_dict(state_dict)
     model.eval()
+    model.to(device)
 
     """ Output brain image """
     vol_data = np.zeros((46, 55, 46))
@@ -38,7 +40,7 @@ if __name__ == "__main__":
 
     text = (query.replace("/", ""), )
     with torch.no_grad():
-        pred = model(text).numpy().squeeze(axis=(0, 1))
+        pred = model(text).cpu().numpy().squeeze(axis=(0, 1))
 
     vol_data[3:-3, 3:-4, :-6] = pred
 
