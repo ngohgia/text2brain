@@ -1,12 +1,8 @@
-import sys
 import os
-import torch
 import numpy as np
-
 import torch
-import torch.nn.functional as F
-import torch.nn as nn
 from torch.utils.data import Dataset
+
 
 class Text2BrainDataset(Dataset):
     def __init__(self, articles_df, images_dir, source):
@@ -19,11 +15,11 @@ class Text2BrainDataset(Dataset):
         pmid = row["article-pmid"]
 
         if self.source == "abstract":
-           text = row.abstract
+            text = row.abstract
         elif self.source == "title":
-           text = row["article-title"]
+            text = row["article-title"]
         else:
-           raise Exception("Data source not implemented")
+            raise Exception("Data source not implemented")
 
         image_file = os.path.join(self.images_dir, "pmid_%s.npy" % pmid)
         image = np.expand_dims(np.load(image_file), 0)
@@ -36,6 +32,7 @@ class Text2BrainDataset(Dataset):
 
     def __len__(self):
         return len(self.articles_df.index)
+
 
 if __name__ == "__main__":
     import pandas as pd

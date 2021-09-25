@@ -17,7 +17,7 @@ if __name__ == "__main__":
     checkpoint_file = f"checkpoints/fc{fc_channels}_d{decoder_filters}_relu_lr0.03_decay1e-06_drop0.55_seed28_checkpoint.pth"
     pretrained_bert_dir = "scibert_scivocab_uncased"
 
-    """Init Model"""
+    # Init Model
     model = Text2BrainModel(
         out_channels=1,
         fc_channels=fc_channels,
@@ -31,7 +31,7 @@ if __name__ == "__main__":
     model.eval()
     model.to(device)
 
-    """ Output brain image """
+    # Output brain image
     vol_data = np.zeros((46, 55, 46))
     affine = np.array([[   4.,    0.,    0.,  -90.],
        [   0.,    4.,    0., -126.],

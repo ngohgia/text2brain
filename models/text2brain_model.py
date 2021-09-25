@@ -7,7 +7,7 @@ import transformers
 
 class Text2BrainModel(nn.Module):
     def __init__(self, out_channels, fc_channels, decoder_filters, pretrained_bert_dir, decoder_act_fn=nn.Sigmoid, drop_p=0.5, decoder_input_shape=[4, 5, 4]):
-        super(Text2BrainModel, self).__init__()
+        super().__init__()
         self.out_channels = out_channels
         self.fc_channels = fc_channels
         self.decoder_filters = decoder_filters
