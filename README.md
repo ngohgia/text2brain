@@ -1,5 +1,6 @@
 # Text2Brain
 ![brain interpreter review](./readme_figures/brain_interpreter.gif)
+
 Generating brain activation maps from free-form text query
 
 ## Reference
