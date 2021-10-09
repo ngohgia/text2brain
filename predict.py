@@ -14,7 +14,7 @@ if __name__ == "__main__":
     fc_channels = 64
     decoder_filters = 32
 
-    checkpoint_file = f"checkpoints/fc{fc_channels}_d{decoder_filters}_relu_lr0.03_decay1e-06_drop0.55_seed28_checkpoint.pth"
+    checkpoint_file = f"best_loss.pth"
     pretrained_bert_dir = "scibert_scivocab_uncased"
 
     # Init Model

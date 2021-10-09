@@ -4,7 +4,7 @@
 Generating brain activation maps from free-form text query
 
 ## Reference
-Gia H. Ngo, Minh Nguyen, Nancy F. Chen, Mert R. Sabuncu. [**Text2Brain: Synthesis of Brain Activation Maps from Free-form Text Query**](). In International Conference on Medical Image Computing and Computer-Assisted Intervention, 2021
+Gia H. Ngo, Minh Nguyen, Nancy F. Chen, Mert R. Sabuncu. [**Text2Brain: Synthesis of Brain Activation Maps from Free-form Text Query**](https://link.springer.com/chapter/10.1007/978-3-030-87234-2_57). In International Conference on Medical Image Computing and Computer-Assisted Intervention, 2021. [arxiv](https://arxiv.org/abs/2109.13814)
 
 ----
 
@@ -38,20 +38,24 @@ The ground-truth activation map is also included in the figure.
         conda env create -f env.yml -n text2brain
     ```
 3. Download a checkpoint of the Text2Brain model from [Google Drive](https://drive.google.com/file/d/1IwUGtdbmseTrFU9NAA9gC-k-Iy5hesQs/view?usp=sharing)
-4. Extract the downloaded file. You should see a folder named `checkpoints` afterward with the checkpoint in it.
+4. Extract the downloaded file. You should see a file named `best_loss.pth`.
     ```bash
         tar -xzvf text2brain_checkpoint.tar.gz
     ```
-5. Move the `checkpoints` folder into the project directory (e.g. `/home/gia/text2brain`)
+5. Move the file `best_loss.pth` into the project directory (e.g. `/home/gia/text2brain`)
 6. Download the pre-trained uncased SciBERT model using [this link](https://s3-us-west-2.amazonaws.com/ai2-s2-research/scibert/huggingface_pytorch/scibert_scivocab_uncased.tar)
 7. Extract the downloaded file.
     ```bash
         tar -xvf scibert_scivocab_uncased.tar
     ```
 8. Move the `scibert_scivocab_uncased` folder into the project directory (e.g. `/home/gia/text2brain`)
-9. To generate brain activation maps from free-form text query, run `python predict_cpu_only.py <input_query> <output_file>`. For example,
+9. Activate the Conda environment
     ```bash
-    python predict_cpu_only.py "self-generated thought" prediction.nii.gz
+        conda activate text2brain
+    ```
+10. To generate brain activation maps from free-form text query, run `python predict.py <input_query> <output_file>`. For example,
+    ```bash
+    python predict.py "self-generated thought" prediction.nii.gz
     ```
 
 ----
