@@ -19,7 +19,6 @@ OUTPUTS_DIR=/share/sablab/nfs04/<CHANGETHIS>/outputs
 
 python -u train.py \
        --ver debug \
-       --debug true \
        --gpus 0 \
        --train_csv $TRAIN_CSV \
        --val_csv $VAL_CSV\
@@ -32,7 +31,6 @@ python -u train.py \
        --n_fc_channels 1024 \
        --n_decoder_channels 512 \
        --weight_decay 1e-6 \
-       --model Text2BrainModel \
        --drop_p 0.5
 
 
