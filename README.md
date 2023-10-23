@@ -37,7 +37,7 @@ The ground-truth activation map is also included in the figure.
     ```bash
         conda env create -f env.yml -n text2brain
     ```
-3. Download a checkpoint of the Text2Brain model from [Google Drive](https://drive.google.com/file/d/1IwUGtdbmseTrFU9NAA9gC-k-Iy5hesQs/view?usp=sharing)
+3. Download a checkpoint of the Text2Brain model from [Google Drive](https://drive.google.com/file/d/1mBO1frmlSMgXGN-F1WKQKlCO0gIk_MHq/view?usp=share_link)
 4. Extract the downloaded file. You should see a file named `best_loss.pth`.
     ```bash
         tar -xzvf text2brain_checkpoint.tar.gz
